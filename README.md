@@ -4,7 +4,7 @@ Very simple AutoSplitter script for Livesplit with splits and subsplits.
 ## Getting Started
 We keep existing Mission splits and use the loading screens as hidden subsplits.
 
-This will split and pause the timer when loading the next area. After it will resume the timer. 
+This will split and pause the timer during until loading the next area is complete. 
 
 It splits on the next area load, previous area load, Previous Save, specific Mission Save, but not Current Save. 
 
