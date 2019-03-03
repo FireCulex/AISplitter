@@ -23,6 +23,10 @@ It splits on the next area load, previous area load, Previous Save, specific Mis
 
 * **FireCulex** - *Initial Work*  - [Twitch](http://twitch.tv/fireculex)
 
+## License
+
+This project is licensed under the GNU General Public License v3.0
+
 ## Acknowledgments
 
 * [psychohypnotic](https://www.twitch.tv/psychohypnotic)
