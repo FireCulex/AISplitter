@@ -21,8 +21,8 @@ It splits on the next area load, previous area load, Previous Save, specific Mis
 
 ## Authors
 
-* **FireCulex** - *Initial Work*  - [Twitch] (http://twitch.tv/fireculex)
+* **FireCulex** - *Initial Work*  - [Twitch](http://twitch.tv/fireculex)
 
 ## Acknowledgments
 
-* [psychohypnotic] (https://www.twitch.tv/psychohypnotic)
+* [psychohypnotic](https://www.twitch.tv/psychohypnotic)
