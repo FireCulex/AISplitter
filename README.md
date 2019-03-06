@@ -12,7 +12,7 @@ It splits on the next area load, previous area load, Previous Save, specific Mis
 * Livesplit 1.7.6
 * Layout -> Scriptable Auto Splitter -> Script Path -> location of the AI autosplit asl
 * Subsplits list in layout, not Splits
-* Layout -> Subsplits -> Contextual
+* Layout -> Subsplits -> Always Hide Subsplits & disable "Show Section Header"
 
 ## TODO:
 * Automatically start timer
