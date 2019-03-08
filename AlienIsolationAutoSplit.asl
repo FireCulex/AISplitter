@@ -1,6 +1,7 @@
 state("AI")
 {
   //string6 mission : 0x0D4E520, 0x600, 0x144, 0x4C8;
+    string6 mission : 0x0D4E520, 0x600, 0x56C;
   
 //  bool isLoading : 0x15A2638
  
