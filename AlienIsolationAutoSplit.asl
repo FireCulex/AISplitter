@@ -1,8 +1,9 @@
 state("AI")
 {
-  string6 mission : 0x0D4E520, 0x600, 0x144, 0x4C8;
+  //string6 mission : 0x0D4E520, 0x600, 0x144, 0x4C8;
   
 //  bool isLoading : 0x15A2638
+ 
 }
 
 init
@@ -12,7 +13,8 @@ init
 
 update
 {
- 
+  
+
 }
 
 startup
@@ -27,9 +29,15 @@ start
 
 split
 {
+var oMission = old.mission;
+var cMission = current.mission;
+
+ if (current.mission.Length > 0)
+    cMission = current.mission.Substring(3);
+if (old.mission.Length > 0)
+    oMission = old.mission.Substring(3);
  
- var cMission = current.mission.Substring(3);
- var oMission = old.mission.Substring(3);
+ print ("mission=(" + oMission + ") - (" + cMission +")");
 
 	if (oMission == "M1 " & cMission == "M2 ")
 		return true;
@@ -83,6 +91,60 @@ split
 		return true;
 
 	if (oMission == "M18" & cMission == "M19")
+		return true;
+		
+	if (oMission == "" & cMission == "M2 ")
+		return true;
+	
+	if (oMission == "" & cMission == "M3 ")
+		return true;
+		
+	if (oMission == "" & cMission == "M4 ")
+		return true;
+	
+	if (oMission == "" & cMission == "M5 ")
+		return true;
+		
+	if (oMission == "" & cMission == "M6 ")
+		return true;
+		
+	if (oMission == "" & cMission == "M7 ")
+		return true;
+	
+	if (oMission == "" & cMission == "M8 ")
+		return true;
+		
+	if (oMission == "" & cMission == "M9 ")
+		return true;
+		
+	if (oMission == "" & cMission == "M10")
+		return true;
+
+	if (oMission == "" & cMission == "M11")
+		return true;
+		
+	if (oMission == "" & cMission == "M12")
+		return true;
+
+	if (oMission == "" & cMission == "M13")
+		return true;
+		
+	if (oMission == "" & cMission == "M14")
+		return true;
+
+	if (oMission == "" & cMission == "M15")
+		return true;
+		
+	if (oMission == "" & cMission == "M16")
+		return true;
+
+	if (oMission == "" & cMission == "M17")
+		return true;
+		
+	if (oMission == "" & cMission == "M18")
+		return true;
+
+	if (oMission == "" & cMission == "M19")
 		return true;
 }
 
