@@ -1,12 +1,14 @@
 state("AI")
 {
-	int mission : 0x17E4814, 0x4, 0x300, 0x280
-
+	bool bLoading1 : 0x14345D0;
+	bool bLoading2 : 0x15A2FF0;
+	bool bLoading3 : 0x15A3308;
+	int mission : 0x17E4814, 0x4, 0x300, 0x280 
 }
 
 init
 {
-  
+
 }
 
 update
@@ -17,6 +19,7 @@ update
 startup
 {
 settings.Add("autotimer",false,"AutoStart Timer");
+settings.Add("loadremover",false,"Experimental Load Remover");
 }
 
 start
@@ -25,14 +28,15 @@ start
 		if (current.mission == 1)
 			return true;
 	}
+	
 }
 
 split
 {
-int oMission = old.mission;
-int cMission = current.mission;
+	int oMission = old.mission;
+	int cMission = current.mission;
 
-//print ("mission=(" + oMission + ") - (" + cMission +")");
+	//print ("mission=(" + oMission + ") - (" + cMission +")");
 
 	if (oMission == 1 & cMission == 2)
 		return true;
@@ -83,9 +87,14 @@ reset
 }
 isLoading
 {
-    // return current.isLoading == true;
-}
 
+	if (settings["loadremover"]) {
+		if (current.bLoading1 == true || current.bLoading2 == true || current.bLoading3 == false)
+			return true;
+		else
+			return false;
+	}
+}
 
 
 exit
