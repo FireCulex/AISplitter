@@ -25,7 +25,7 @@ settings.Add("loadremover",false,"Experimental Load Remover");
 start
 {
 	if (settings["autotimer"]) {
-		if (current.mission == 1)
+		if (current.mission == 1 && current.bLoading3 == true)
 			return true;
 	}
 	
@@ -74,7 +74,6 @@ split
 		return true;
 	if (oMission == 18 & cMission == 19)
 		return true;
-
 }
 
 
