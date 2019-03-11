@@ -1,158 +1,85 @@
 state("AI")
 {
-  //string6 mission : 0x0D4E520, 0x600, 0x144, 0x4C8;
-    string6 mission : 0x0D4E520, 0x600, 0x56C;
-  
-//  bool isLoading : 0x15A2638
- 
+	int mission : 0x17E4814, 0x4, 0x300, 0x280
+
 }
 
 init
 {
-   vars.split =0;
+  
 }
 
 update
 {
   
-
 }
 
 startup
 {
-
+settings.Add("autotimer",false,"AutoStart Timer");
 }
 
 start
 {
-
+	if (settings["autotimer"]) {
+		if (current.mission == 1)
+			return true;
+	}
 }
 
 split
 {
-var oMission = old.mission;
-var cMission = current.mission;
+int oMission = old.mission;
+int cMission = current.mission;
 
- if (current.mission.Length > 0)
-    cMission = current.mission.Substring(3);
-if (old.mission.Length > 0)
-    oMission = old.mission.Substring(3);
- 
- print ("mission=(" + oMission + ") - (" + cMission +")");
+//print ("mission=(" + oMission + ") - (" + cMission +")");
 
-	if (oMission == "M1 " & cMission == "M2 ")
+	if (oMission == 1 & cMission == 2)
 		return true;
-	
-	if (oMission == "M2 " & cMission == "M3 ")
+	if (oMission == 2 & cMission == 3)
 		return true;
-		
-	if (oMission == "M3 " & cMission == "M4 ")
+	if (oMission == 3 & cMission == 4)
 		return true;
-	
-	if (oMission == "M4 " & cMission == "M5 ")
+	if (oMission == 4 & cMission == 5)
 		return true;
-		
-	if (oMission == "M5 " & cMission == "M6 ")
+	if (oMission == 5 & cMission == 6)
 		return true;
-		
-	if (oMission == "M6 " & cMission == "M7 ")
+	if (oMission == 6 & cMission == 7)
 		return true;
-	
-	if (oMission == "M7 " & cMission == "M8 ")
+	if (oMission == 7 & cMission == 8)
 		return true;
-		
-	if (oMission == "M8 " & cMission == "M9 ")
+	if (oMission == 8 & cMission == 9)
 		return true;
-		
-	if (oMission == "M9 " & cMission == "M10")
+	if (oMission == 9 & cMission == 10)
 		return true;
-
-	if (oMission == "M10" & cMission == "M11")
+	if (oMission == 10 & cMission == 11)
 		return true;
-		
-	if (oMission == "M11" & cMission == "M12")
+	if (oMission == 11 & cMission == 12)
 		return true;
-
-	if (oMission == "M12" & cMission == "M13")
+	if (oMission == 12 & cMission == 13)
 		return true;
-		
-	if (oMission == "M13" & cMission == "M14")
+	if (oMission == 13 & cMission == 14)
+		return true;
+	if (oMission == 14 & cMission == 15)
+		return true;
+	if (oMission == 15 & cMission == 16)
+		return true;
+	if (oMission == 16 & cMission == 17)
+		return true;
+	if (oMission == 17 & cMission == 18)
+		return true;
+	if (oMission == 18 & cMission == 19)
 		return true;
 
-	if (oMission == "M14" & cMission == "M15")
-		return true;
-		
-	if (oMission == "M15" & cMission == "M16")
-		return true;
-
-	if (oMission == "M16" & cMission == "M17")
-		return true;
-		
-	if (oMission == "M17" & cMission == "M18")
-		return true;
-
-	if (oMission == "M18" & cMission == "M19")
-		return true;
-		
-	if (oMission == "" & cMission == "M2 ")
-		return true;
-	
-	if (oMission == "" & cMission == "M3 ")
-		return true;
-		
-	if (oMission == "" & cMission == "M4 ")
-		return true;
-	
-	if (oMission == "" & cMission == "M5 ")
-		return true;
-		
-	if (oMission == "" & cMission == "M6 ")
-		return true;
-		
-	if (oMission == "" & cMission == "M7 ")
-		return true;
-	
-	if (oMission == "" & cMission == "M8 ")
-		return true;
-		
-	if (oMission == "" & cMission == "M9 ")
-		return true;
-		
-	if (oMission == "" & cMission == "M10")
-		return true;
-
-	if (oMission == "" & cMission == "M11")
-		return true;
-		
-	if (oMission == "" & cMission == "M12")
-		return true;
-
-	if (oMission == "" & cMission == "M13")
-		return true;
-		
-	if (oMission == "" & cMission == "M14")
-		return true;
-
-	if (oMission == "" & cMission == "M15")
-		return true;
-		
-	if (oMission == "" & cMission == "M16")
-		return true;
-
-	if (oMission == "" & cMission == "M17")
-		return true;
-		
-	if (oMission == "" & cMission == "M18")
-		return true;
-
-	if (oMission == "" & cMission == "M19")
-		return true;
 }
 
 
 reset
 {
-
+	if (settings["autotimer"]) {
+		if (current.mission == 0)
+			return true;
+	}
 }
 isLoading
 {
