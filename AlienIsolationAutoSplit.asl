@@ -8,7 +8,7 @@ state("AI")
 
 init
 {
-
+	vars.split = 0;
 }
 
 update
@@ -19,14 +19,19 @@ update
 startup
 {
 settings.Add("autotimer",false,"AutoStart Timer");
+settings.Add("autosplitter",true,"Autosplitter");
 settings.Add("loadremover",false,"Experimental Load Remover");
 }
 
 start
-{
+{ 
+
 	if (settings["autotimer"]) {
-		if (current.mission == 1 && current.bLoading3 == true)
-			return true;
+		if (current.mission == 1 && current.bLoading3 == true) 
+		{
+			vars.split = vars.split + 1;
+		return true;
+		}
 	}
 	
 }
@@ -36,8 +41,8 @@ split
 	int oMission = old.mission;
 	int cMission = current.mission;
 
-	//print ("mission=(" + oMission + ") - (" + cMission +")");
-
+//	print ("mission=(" + oMission + ") - (" + cMission +")");
+if (settings["autosplitter"]) {
 	if (oMission == 1 & cMission == 2)
 		return true;
 	if (oMission == 2 & cMission == 3)
@@ -66,7 +71,7 @@ split
 		return true;
 	if (oMission == 14 & cMission == 15)
 		return true;
-	if (oMission == 15 & cMission == 16)
+	if (oMission == 0 & cMission == 16)
 		return true;
 	if (oMission == 16 & cMission == 17)
 		return true;
@@ -74,15 +79,16 @@ split
 		return true;
 	if (oMission == 18 & cMission == 19)
 		return true;
+	}
 }
 
 
 reset
 {
-	if (settings["autotimer"]) {
-		if (current.mission == 0)
-			return true;
-	}
+//	if (settings["autotimer"]) {
+//		if (current.mission == 0)
+//			return true;
+//	}
 }
 isLoading
 {
