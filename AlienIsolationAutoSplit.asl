@@ -2,8 +2,9 @@ state("AI")
 {
 	bool bLoading1 : 0x14345D0;
 	bool bLoading2 : 0x15A2FF0;
-	bool bLoading3 : 0x15A3308;
-	int mission : 0x17E4814, 0x4, 0x300, 0x280 
+	bool bPause : 0x15A3308;
+	int mission : 0x17E4814, 0x4, 0x300, 0x280;
+	int bLoading : 0x01366A58, 0x80, 0x4,0x4,0x0,0x1DC
 }
 
 init
@@ -13,6 +14,7 @@ init
 
 update
 {
+
   
 }
 
@@ -20,14 +22,15 @@ startup
 {
 settings.Add("autotimer",false,"AutoStart Timer");
 settings.Add("autosplitter",true,"Autosplitter");
-settings.Add("loadremover",false,"Experimental Load Remover");
+settings.Add("loadremover",false,"Load Remover");
+settings.Add("pauseremover",false,"Experimental Cinematics/Pause Remover");
 }
 
 start
 { 
 
 	if (settings["autotimer"]) {
-		if (current.mission == 1 && current.bLoading3 == true) 
+		if (current.mission == 1 && current.bPause == true) 
 		{
 			vars.split = vars.split + 1;
 		return true;
@@ -92,13 +95,17 @@ reset
 }
 isLoading
 {
-
-	if (settings["loadremover"]) {
-		if (current.bLoading1 == true || current.bLoading2 == true || current.bLoading3 == false)
+//print (current.bLoading1.ToString() + current.bLoading2.ToString());
+	if (settings["pauseremover"]) {
+		if (current.bPause == false && current.bLoading2 == false && current.bLoading1 == false)
 			return true;
-		else
-			return false;
 	}
+	if (settings["loadremover"]) {
+		if (current.bLoading == 256)
+			return true;
+		}
+		
+		return false;
 }
 
 
