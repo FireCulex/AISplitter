@@ -1,19 +1,15 @@
 # AISplitter
-Very simple AutoSplitter script for Livesplit with splits.
+Very not simple AutoSplitter script for Livesplit with additional features.
 
 ## Getting Started
-We use the in-game Mission counter. Has nothing to do with loading screens.
-
-Recommend using the existing Load Remover as Mission counter happens at the start of a mission as opposed to load.
+We use the in-game Auto-Save Mission Name for Starts and Splits. Load removal is based on the swirly icon. There's also Cinematics and Pause removers.
 
 ### Prerequisites
 * Livesplit 1.7.6
 * Layout -> Scriptable Auto Splitter -> Script Path -> location of the AI autosplit asl
 
 ## TODO:
-* Automatically start timer
 * Automatically end timer
-* Pause screen also pauses timer
 
 ## Authors
 
