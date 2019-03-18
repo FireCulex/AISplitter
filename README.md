@@ -2,7 +2,7 @@
 Very not simple AutoSplitter script for Livesplit with additional features.
 
 ## Getting Started
-We use the in-game Auto-Save Mission Name for Starts and Splits. Load removal is based on the swirly icon. There's also Cinematics and Pause removers.
+We use the in-game Auto-Save Mission Name for Starts and Splits. Load removal is based on the swirly icon. There's also Cinematics and Pause removers. Each setting can be enabled or disabled.
 
 ### Prerequisites
 * Livesplit 1.7.6
