@@ -1,10 +1,9 @@
 state("AI")
 {
-	bool bLoading1 : 0x14345D0;
-	bool bLoading2 : 0x15A2FF0;
-	bool bPause : 0x15A3308;
+	byte bCinematics : 0x1359B44, 0x0, 0xA8;
 	int mission : 0x17E4814, 0x4, 0x300, 0x280;
-	int bLoading : 0x01366A58, 0x80, 0x4,0x4,0x0,0x1DC
+	int bLoading : 0x1236710, 0x1C, 0x18,0x74,0x8,0x40, 0x7B0;
+	bool bPause : 0x1358A58, 0x44, 0x98, 0x64, 0xBC, 0x74
 }
 
 init
@@ -23,7 +22,8 @@ startup
 settings.Add("autotimer",false,"AutoStart Timer");
 settings.Add("autosplitter",true,"Autosplitter");
 settings.Add("loadremover",false,"Load Remover");
-settings.Add("pauseremover",false,"Experimental Cinematics/Pause Remover");
+settings.Add("cinematicsremover",false,"Cinematics Remover");
+settings.Add("pauseremover",false,"Pause Remover");
 }
 
 start
@@ -43,6 +43,7 @@ split
 {
 	int oMission = old.mission;
 	int cMission = current.mission;
+
 
 //	print ("mission=(" + oMission + ") - (" + cMission +")");
 if (settings["autosplitter"]) {
@@ -82,6 +83,8 @@ if (settings["autosplitter"]) {
 		return true;
 	if (oMission == 18 & cMission == 19)
 		return true;
+//	if (oMission == 19 & current.bEnding == true)
+//		return true;
 	}
 }
 
@@ -95,16 +98,28 @@ reset
 }
 isLoading
 {
-//print (current.bLoading1.ToString() + current.bLoading2.ToString());
-	if (settings["pauseremover"]) {
-		if (current.bPause == false && current.bLoading2 == false && current.bLoading1 == false)
+	if (settings["cinematicsremover"]) 
+	{
+		if (current.bCinematics == 1) 
+		{
+		print ("Cinematics Removed");
 			return true;
+		}
 	}
 	if (settings["loadremover"]) {
 		if (current.bLoading == 256)
+		{
+			print ("Loading Removed");
 			return true;
 		}
-		
+	}	
+	if (settings["pauseremover"]) {
+		if (current.bPause == true)
+		{
+			print ("Pause Removed");
+			return true;
+		}
+	}
 		return false;
 }
 
