@@ -30,7 +30,7 @@ start
 { 
 
 	if (settings["autotimer"]) {
-		if (current.mission == 1 && current.bPause == true) 
+		if (current.mission == 1 & current.bPause == false) 
 		{
 			vars.split = vars.split + 1;
 		return true;
