@@ -120,7 +120,10 @@ isLoading
 			return true;
 		}
 	}
+	
+	if (settings["cinematicsremover"] || settings["loadremover"] || settings["pauseremover"]) {
 		return false;
+		}
 }
 
 
